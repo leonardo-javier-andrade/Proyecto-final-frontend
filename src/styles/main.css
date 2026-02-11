@@ -7,31 +7,54 @@
 
 
 .app{
-    background-color: aqua;
     height: 100vh;
     display: flex;
 }
 
 aside{
-    background-color: rgb(67, 158, 123);
+    background-color: rgb(152, 226, 198);
     width: 250px;
-    
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
-
+aside input{
+    display: block;
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solidcolor rgb(39, 97, 14);
+}
 
 section{
-    background-color: rgb(20, 72, 168);
+    background-color: rgba(22, 133, 127, 0.575);
     flex-grow: 1;
+    overflow-y: scroll;
 }
 
-/* aside styles */
 li {
     margin-bottom: 10px;
-    padding: 20px;
-    background-color: rgb(156, 230, 123) ;
-    margin: 5px 20px;
+    padding: 5px;
+    background-color: rgb(57, 101, 131) ;
+    margin: 5px 10px;   
+    border-radius: 15px;
+    list-style: none;
+    display: flex
+}
+ul :hover{
+    background-color: rgb(20, 46, 63) ;
+    cursor: pointer;
+    color: white;
 }
 
+li img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right:10px;
+}
 li span {
     display: block;
 }

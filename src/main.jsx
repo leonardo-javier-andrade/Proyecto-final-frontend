@@ -9,9 +9,9 @@ import "./styles/main.css"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className="app">
+    <main className="app">
       <Aside/>
       <Chat/>
-    </div>
+    </main>
   </StrictMode>,
 )
