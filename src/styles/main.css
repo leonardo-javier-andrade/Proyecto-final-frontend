@@ -9,6 +9,8 @@
 .app{
     height: 100vh;
     display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 aside{
@@ -19,7 +21,11 @@ aside{
     overflow-y: scroll;
     overflow-x: hidden;
 }
-aside input{
+aside h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.seach{
     display: block;
     width: 90%;
     margin: 10px;
@@ -28,11 +34,6 @@ aside input{
     border: 2px solidcolor rgb(39, 97, 14);
 }
 
-section{
-    background-color: rgba(22, 133, 127, 0.575);
-    flex-grow: 1;
-    overflow-y: scroll;
-}
 
 li {
     margin-bottom: 10px;
@@ -57,4 +58,54 @@ li img{
 }
 li span {
     display: block;
+    color: rgb(48, 47, 47)
+}
+
+/* ----------------------SECCION DEL CHAT------------------------------------- */
+section{
+    flex:1;
+display: flex;
+flex-direction: column;
+    background-image: url('../assets/messages_light_colour_background.jpg');
+    background-size: cover;}
+
+
+
+section header {
+    background-color: rgb(27, 110, 110);
+    border-bottom: 1px solid    rgb(29, 23, 23);
+    padding: 10px;
+}
+
+.chat-container{
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.message {
+    backdrop-filter: blur(12px);
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.timeStamp {
+    color: gray;
+    font-size: 12px;
+    text-align: end;
+    margin-top: 3px;
+}
+
+.chat-input{
+    padding: 10px;
+    display: flex;
+    background-color: rgb(27, 110, 110);
+    gap:10px
+}
+
+.chat-input input{
+    flex:1;
+    
 }

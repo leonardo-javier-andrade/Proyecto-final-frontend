@@ -31,8 +31,8 @@ useEffect(() => {fechingData ()}, [])
 const handleChange = (event)=>{
 setSearch(event.target.value)}
 
-const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLocaleLowerCase()))
-console.log (filteredUsers)
+const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLocaleLowerCase()) || user.lastName.toLowerCase().includes(search.toLocaleLowerCase()))
+console.log (filteredUsers) 
 
 
 
@@ -40,7 +40,7 @@ console.log (filteredUsers)
   return (
     <aside>
         <h1>Chat de UTN</h1>
-        <input type="search" placeholder="Buscar usuario" onChange={handleChange}/>
+        <input className="seach" type="search" placeholder="Buscar usuario" onChange={handleChange}/>
         {filteredUsers.length === 0 && <p>No se encontraron contactos</p>}
         <ul>
             {
@@ -48,7 +48,7 @@ console.log (filteredUsers)
                 <li key= {user.id}>
                   <img src={user.image} alt="" />
                   <div>
-                    {user.firstName}{user.lastName}
+                    {user.firstName} {user.lastName}
                   
                   <span>{user.address.country}</span>
                   </div>
