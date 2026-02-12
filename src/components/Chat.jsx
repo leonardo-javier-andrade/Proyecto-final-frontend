@@ -40,7 +40,7 @@ const downkey = (event) => {
   }
  
   return (
-    <section>
+    <section className="chat">
       <header>
         <h2>Bruce Wayne</h2>
         <p>Ultima conexión hace 1 minuto</p>
@@ -59,7 +59,7 @@ const downkey = (event) => {
         }
       </div>
       <div className="chat-input">
-        <input onChange={hadleChange} onKeyDown={downkey} type="text" placeholder="Escribe un mensaje..." value={text}/>
+        <input className= "input" onChange={hadleChange} onKeyDown={downkey} type="text" placeholder="Escribe un mensaje..." value={text}/>
         <button onClick={clickSubmit}>Enviar</button>
       </div>
     </section>
