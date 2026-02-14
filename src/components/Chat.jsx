@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { useState, useRef, useEffect, use, act } from "react"
 import { messages as mockMessages } from "../services/mockApi.js";
 
-const Chat = () => {
+const Chat = ({activeUser}) => {
 
   const [messages, setMessages] = useState(mockMessages)
   const [text, setText] = useState("")
+ 
+
+  const chatContainerRef = useRef(null)
 
   const hadleChange = (event) => {
     console.log(event.target.value)
@@ -39,13 +42,27 @@ const downkey = (event) => {
  
   }
  
+  useEffect(()=>{
+    if(chatContainerRef.current){
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+  }},[messages])
+
+
+  if (!activeUser) {
+    return ( <section className="chat-cont-empty">
+      <p className="chat-empty">Selecciona un usuario para comenzar</p>
+      </section>
+    )
+  }
+
   return (
     <section className="chat">
       <header>
-        <h2>Bruce Wayne</h2>
+        <h2> {activeUser.firstName} {activeUser.lastName}</h2>
+        <h2>{activeUser.address.city}</h2>
         <p>Ultima conexión hace 1 minuto</p>
       </header>
-      <div className="chat-container">
+      <div className="chat-container" ref={chatContainerRef}>
         {
           messages.map((message) =>
             <div className={`message ${message.author === "Robin" ? "me" : "received"}`}>

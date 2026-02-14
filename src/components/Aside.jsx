@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 // import {users} from "../services/mockApi.js"
 
-const Aside = () => {
-
+const Aside = ({onActiveUser , mensajePrueba}) => {
+console.log("Validación de props:", mensajePrueba);
 const [search, setSearch] = useState("")
 const [users, setUsers] = useState([])
 
@@ -31,10 +31,15 @@ useEffect(() => {fechingData ()}, [])
 const handleChange = (event)=>{
 setSearch(event.target.value)}
 
-const filteredUsers = users.filter((user) => user.firstName.toLowerCase().includes(search.toLocaleLowerCase()) || user.lastName.toLowerCase().includes(search.toLocaleLowerCase()))
+const filteredUsers = users.filter((user) => {
+  const fullName = `${user.firstName} ${user.lastName}`.toLowerCase()
+  return fullName.includes(search.toLowerCase())
+})
 console.log (filteredUsers) 
 
-
+const handleClick =(id)=>{
+  onActiveUser(id)
+}
 
 
   return (
@@ -45,12 +50,12 @@ console.log (filteredUsers)
         <ul>
             {
             filteredUsers.map((user)=>(
-                <li key= {user.id}>
+                <li key= {user.id} onClick= {()=>handleClick(user.id)}>
                   <img src={user.image} alt="" />
                   <div>
                     {user.firstName} {user.lastName}
                   
-                  <span>{user.address.country}</span>
+                  <span>{user.address.city}</span>
                   </div>
                 </li>
        

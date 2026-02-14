@@ -69,12 +69,28 @@ flex-direction: column;
     background-image: url('../assets/messages_light_colour_background.jpg');
     background-size: cover;}
 
+.chat-cont-empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.chat-empty{
+    text-align: center;
+    margin-top: 20px;
+    padding: 40px;
+     border-radius: 10px 10px 10px px;
+     font-size: 20px;
+    color: rgb(48, 47, 47);
+    backdrop-filter: blur(18px); 
+  
+}
 
 section header {
     background-color: rgb(27, 110, 110);
     border-bottom: 1px solid    rgb(29, 23, 23);
     padding: 10px;
+    border-radius: 8px 8px 8px 8px;
 }
 
 .chat-container{
@@ -90,14 +106,23 @@ section header {
     max-width: 400px;
     padding: 10px;
     border-radius: 5px;
+    background-color: rgba(250, 235, 215, 0.452);
 }
 
 .message:hover{
     font-weight: bold;
-    color: rgb(20, 46, 63);
     cursor: pointer;
     
 }
+.received {
+    align-self: start;
+}
+
+.me { 
+    background-color: rgba(128, 187, 128, 0.445);
+    align-self: flex-end;
+    }
+
 .timeStamp {
     color: gray;
     font-size: 12px;
@@ -109,7 +134,8 @@ section header {
     padding: 10px;
     display: flex;
     background-color: rgb(27, 110, 110);
-    gap:10px
+    gap:10px;
+    border-radius: 8px 8px 0px 0px;
 }
 
 .input{
@@ -136,3 +162,16 @@ section header {
     background-color: rgb(47, 58, 88);
     cursor: pointer;
 }
+
+/* --------------------------------Responsive------------------------ */
+
+
+@media (max-width: 880px) {
+    
+    aside {
+     
+        display: none;
+       
+    }
+   
+}   
